@@ -17,17 +17,17 @@ import com.educandoweb.course.service.CategoryService;
 public class CategoryResource {
 
 	@Autowired
-	private CategoryService service; 
+	private CategoryService categories; 
 	
 	@GetMapping
 	public ResponseEntity<List<Category>> findAll() {
-		List<Category> list = service.findAll();
+		List<Category> list = categories.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 	
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Category> findById(@PathVariable Long id){
-		Category obj = service.findById(id);
+		Category obj = categories.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
 }
